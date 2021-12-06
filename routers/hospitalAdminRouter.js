@@ -1,13 +1,18 @@
 import express from "express";
-import {signUp, logIn, viewAllAppointments, deleteAppointment, acceptAppointment} from "../controllers/hospitalAdminController.js";
-import { authenticate } from "../middlewares/auth.js";
+import { addAdmin, deleteAdmin, viewAdmin, viewAllAdmin, viewAllAppointments, deleteAppointment, acceptAppointment} from "../controllers/hospitalAdminController.js";
 const adminRouter = express.Router();
 
-//signup
-adminRouter.post('/', authenticate, signUp) // are we using auth here?
+//view an admin
+adminRouter.get('/:id', viewAdmin)
 
-//login
-adminRouter.post('/login', logIn)
+//view all admin
+adminRouter.get('/', viewAllAdmin)
+
+//add hospital admin user
+adminRouter.post('/', addAdmin)
+
+//delete hospital admin user
+adminRouter.delete('/:id', deleteAdmin)
 
 //view all appts
 adminRouter.get('/:id', viewAllAppointments)

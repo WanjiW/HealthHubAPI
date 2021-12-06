@@ -1,7 +1,5 @@
 import Hospital from "../models/Hospitalmodel.js";
 
-
-
 //Add a Hospital
  export async function addHospital(req,res){
       try{

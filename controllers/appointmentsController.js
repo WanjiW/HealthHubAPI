@@ -7,12 +7,13 @@ export async function createAppt(req, res) {
         if (newAppt) {
             res.status(200).json({
                 success: true,
-                data: newAppt
+                data: newAppt,
+                message: "Appointment created successfully"
             })
         } else {
             res.status(200).json({
-                success: true,
-                message: "Appointment created successfully"
+                success: false,
+                message: "Appointment not created successfully"
             })
 
         }
