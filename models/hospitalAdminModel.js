@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import { sequelize } from "../db/dbConnect.js";
 
-const Admin = sequelize.define('admin', {
+const Admin = sequelize.define('hospital_ admin', {
 
     AdminID: {
         autoIncrement: true,

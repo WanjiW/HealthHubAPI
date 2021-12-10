@@ -1,17 +1,17 @@
 import express from "express";
 import { addPatient,ViewPatient,ViewAllPatients , UpdatePatient ,deletePatient } from "../Controllers/PatientsController.js";
-
+import { authenticate } from "../middlewares/auth.js";
 const PatientRouter=express.Router();
-//Add a patient
-PatientRouter.post("/", addPatient );
-//View a patient
-PatientRouter.get("/:id",ViewPatient);
-//View All Patients
-PatientRouter.get("/",ViewAllPatients);
-//Update A patient
-PatientRouter.put("/:id",UpdatePatient);
-//Delete A patient
-PatientRouter.delete("/:id",deletePatient);
+//Get a Patient
+PatientRouter.get("/",authenticate,ViewAllPatients);
+PatientRouter.get("/:id",authenticate,ViewPatient);
+PatientRouter.post("/",authenticate,addPatient);
+PatientRouter.put("/",authenticate,UpdatePatient);
+PatientRouter.delete("/:id",authenticate,deletePatient);
 
+
+
+
+ 
 
 export default PatientRouter;
