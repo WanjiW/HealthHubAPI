@@ -30,9 +30,9 @@ const Admin = sequelize.define('admin', {
         allowNull: false
     },
 
-    Hospital_Id: {
+    Hospital_id: {
         type: Sequelize.INTEGER(255),
-        allowNull: false
+        allowNull: true
     }
 
 }, {

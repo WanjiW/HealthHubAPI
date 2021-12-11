@@ -16,7 +16,7 @@ const Appointment = sequelize.define('appointment', {
     },
 
     Appointment_Date: {
-        type: Sequelize.DATE,
+        type: Sequelize.INTEGER(255),
         allowNull: false
     },
 
@@ -25,7 +25,7 @@ const Appointment = sequelize.define('appointment', {
         allowNull: false
     },
 
-    Patients_Id: {
+    Patient_ID: {
         type: Sequelize.INTEGER(255),
         allowNull: false
     }

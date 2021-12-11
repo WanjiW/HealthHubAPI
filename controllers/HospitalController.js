@@ -1,5 +1,7 @@
 import Hospital from "../models/Hospitalmodel.js";
 
+
+
 //Add a Hospital
  export async function addHospital(req,res){
       try{
@@ -28,12 +30,12 @@ import Hospital from "../models/Hospitalmodel.js";
 //View a Hospital
 export async function ViewHospital(req,res){
     try{
-        let hospital=await Hospital.findAll({where:{Hospital_Id:req.params.id}});
-        if (hospital){
+        let allhospitals=await Hospital.findAll({where:{Hosital_Id:req.params.id}});
+        if (allhospitals){
             res.status(200).json({
                 success:true,
                 message:'Hospitals records retrived successfully',
-                data:hospital
+                data:allhospitals
             })
         }else{
           res.json({
@@ -80,7 +82,7 @@ export async function  ViewAllHospital(req,res){
 //Update Hospital Record
 export async function  UpdateHospital(req,res){
     try{
-        let updatehospital = await Hospital.update(req.body, {where: {Hospital_Id: req.params.id}})
+        let updatehospital = await Hospital.update(req.body, {where: {Hosital_Id: req.params.id}})
         if (updatehospital){
             res.json({ 
                 success: true,
@@ -108,7 +110,7 @@ export async function  UpdateHospital(req,res){
 //Delete a Hospital
 export async function  deleteHospital(req,res){
     try{
-        let theHospital = await Hospital.destroy({where: {Hospital_Id: req.params.id}});
+        let theHospital = await Hospital.destroy({where: {Hosital_Id: req.params.id}});
         if (theHospital){
             res.json({
                 success: true,
