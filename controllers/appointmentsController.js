@@ -1,6 +1,6 @@
 import Appointment from "../models/appointmentsModel.js";
 
-//add an appointment
+
 export async function createAppt(req, res) {
     try {
         let newAppt = await Appointment.create(req.body);
@@ -26,38 +26,6 @@ export async function createAppt(req, res) {
         })
     }
 }
-
-//view an apppointment
-export async function viewAppointment (req, res){
-    try{
-        let anAppt = await Appointment.findAll({where:{Appointment_id:req.params.id}});
-        if (anAppt){
-           res.status(200).json({
-               success:true,
-               message:"Appointment retrieved successfully",
-               data: anAppt
-           })}else{
-                res.json({
-                   success:true,
-                  message:"Appointment could not be retrieved"
-                }
-               
-               )
-            }
-    } catch(err){
-       if (err){
-            res.json({
-               success:false,
-               message:"Oops! Something is wrong"
-           })
-
-        }
-
-    }
-
-}
-
-
 
 //view appointments
 export async function viewAllAppointments (req,res){
@@ -87,7 +55,7 @@ export async function viewAllAppointments (req,res){
     
 }
 
-//delete an appointment
+//delete appointments
 export async function deleteAppointment(req, res) {
     try {
         let specificAppt = await Appointment.destroy({where: {Appointment_id: req.params.id}});
@@ -119,7 +87,7 @@ export async function acceptAppointment(req, res) {
         if (acceptAppt) {
             res.json({
                 success: true,
-                message: "Appointment status changed",
+                message: "Appointment status changed to 'accepted'",
                 data: acceptAppt
             })
         } else {

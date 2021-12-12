@@ -1,5 +1,5 @@
 import express from "express";
-import { addUser,ViewUser,ViewAllUsers , SignIn } from "../Controllers/usersController.js";
+import { addUser,ViewUser,ViewAllUsers , SignIn } from "../controllers/usersController.js";
 import { authenticate } from "../middlewares/auth.js";
 
 const usersRouter=express.Router();
@@ -8,9 +8,9 @@ usersRouter.post("/",addUser);
 //Add a user ------Sign In
 usersRouter.post("/signin",SignIn);
 //View a User ------
-usersRouter.get("/:id",authenticate,ViewUser);
+usersRouter.get("/:id", authenticate,   ViewUser);
 //View All Users
-usersRouter.get("/",authenticate,ViewAllUsers);
+usersRouter.get("/", authenticate, ViewAllUsers);
  
 
 

@@ -1,15 +1,14 @@
 import Patient from "../models/Patientsmodel.js"
-
+ 
 
 //Add a Patient
 export async function addPatient(req,res){
-     try{
+    try{
         let patient=await Patient.create(req.body);
         if(patient){
             res.status(200).json({
                 success:true,
                 data:patient
-                
             })
         }else{
           res.status(200).json({
@@ -18,13 +17,17 @@ export async function addPatient(req,res){
           })
 
         }
-     }catch(err){
-        res.status(500).json({
-            success:false,
-            message:"oops...Something went wrong"
-        }) 
-     }
+    }catch (err){
+        console.log(err);
+    res.status(500).json({
+        
+        success:false,
+        message:"Opps.....Something is wrong"
+    })
+    }
 }
+
+      
 //View A Patient
 export async function ViewPatient(req,res){
     try{
@@ -42,6 +45,7 @@ export async function ViewPatient(req,res){
           })  
         }
     }catch(err){
+        console.log(err)
        res.status(500).json({
          
            success:false,
@@ -69,10 +73,11 @@ export async function ViewAllPatients(req,res){
           })  
         }
     }catch(err){
+        console.log(err)
        res.status(500).json({
          
            success:false,
-           message:"Opps!Something is wrong"
+           message:"Opps.....Something is wrong"
        })
 
     }
@@ -127,3 +132,4 @@ export async function  deletePatient(req,res){
         })
     }
 }
+
